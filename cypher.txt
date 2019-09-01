@@ -1,0 +1,24 @@
+LOAD CSV WITH HEADERS FROM 'file:///test/graph_nodes.csv' AS csvLine
+CREATE (t:TestNode {NodeId: csvLine.node_id, node_type: csvLine.node_type});
+
+
+
+LOAD CSV WITH HEADERS FROM 'file:///test/graph_relationships.csv' AS csvLine
+MATCH (source:TestNode {NodeId: csvLine.source_node}), (target:TestNode {NodeId: csvLine.target_node})
+CREATE (source)-[:SystemConnection {type: csvLine.relation_name}]->(target);
+
+MATCH (n)
+DETACH DELETE n;
+
+
+MATCH (n)
+RETURN (n)
+
+MATCH p = (a)-[:Attack]->(b) RETURN p
+
+
+MATCH (start:IAMAccessKey{NodeId: "iam_access_key_AKIAIL4WCUER5XXXXX"}), (end:EC2Instance{NodeId:"ec2_instance_i-0e6e9db484fXXXXXX"})
+MATCH p = (start)-[r:Attack*]->(end)  RETURN p AS shortestPath, reduce(cost=0, rel in relationships(p) | cost + rel.weight) AS totalCost
+ORDER BY totalCost ASC
+SKIP 1
+LIMIT 1

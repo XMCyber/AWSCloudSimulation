@@ -1,0 +1,16 @@
+boto3==1.9.85
+botocore==1.12.85
+docutils==0.14
+jmespath==0.9.3
+python-dateutil==2.7.5
+s3transfer==0.1.13
+six==1.12.0
+tinydb==3.12.2
+tinydb-serialization==1.0.4
+urllib3==1.24.1
+deepdiff
+pyee
+bottle
+bson
+neo4j==1.7.4
+ujson

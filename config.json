@@ -1,0 +1,16 @@
+{
+  "NEO4J": {
+    "USERNAME": "neo4j",
+    "PASSWORD": "Password1",
+    "URL": "bolt://@127.0.0.1:7687"
+  },
+  "AWS": {
+    "PROFILE": "research",
+    "SUPPORTED_REGIONS": ["eu-west-1", "us-east-2", "us-east-1", "us-west-1", "us-west-2", "eu-central-1", "eu-west-2", "eu-west-3", "eu-north-1"],
+    "CLOUDTRAIL": {
+      "DISABLE": true,
+      "KINESIS_REGION": "eu-west-1",
+      "STREAM_NAME": "cloudtrail-logs"
+    }
+  }
+}
